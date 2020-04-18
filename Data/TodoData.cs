@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic; // ~ import
 using TodoWeb.Models;
+using System.Linq;
 
 // Dapper (StackOverflow)
 
@@ -13,19 +15,6 @@ namespace TodoWeb.Data
     // construtor:
     public TodoData()
     {
-      Todo todo1 = new Todo {
-        // definir os valores das propriedades:
-        Id = 1,
-        Title = "Lavar o carro"
-      };
-
-      Todo todo2 = new Todo { Id = 2, Title = "Estudar .NET" };
-
-      if(todos.Count == 0)
-      {
-        todos.Add(todo1);
-        todos.Add(todo2);
-      }
     }
 
     public List<Todo> Read() // cRud
@@ -38,14 +27,25 @@ namespace TodoWeb.Data
       todos.Add(todo);
     }
 
-    public void Delete(int id) // cruD
+    public Todo Read(Guid id)
     {
-      // TODO... (LinQ)
+      return todos.Single(t => t.Id == id);
+    }
+
+    public void Delete(Guid id) // cruD
+    {
+      // int index = todos.FindIndex(t => t.Id == id);
+      // todos.RemoveAt(index);
+
+      todos.Remove(Read(id));      
     }
 
     public void Update(Todo todo) // crUd
     {
-      // TODO.. 
+      Todo _todo = Read(todo.Id); // reference (ponteiro).
+
+      _todo.Title = todo.Title;
+      _todo.Done = todo.Done;
     }
   }
 }

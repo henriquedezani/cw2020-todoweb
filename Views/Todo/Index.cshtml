@@ -1,22 +1,8 @@
-<!-- Diretiva -->
-@using TodoWeb.Models 
-
-@* return View(lista); Vem do controller *@
 @model List<Todo> 
 
-<!-- comentário -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+  @* <span>@Model.Count</span> *@
 
-  <span>@Model.Count</span>
-
-  <table>
+  <table class="table table-hover">
 
     @foreach(var todo in Model)
     {
@@ -24,12 +10,14 @@
         <td>@todo.Id</td>
         <td>@todo.Title</td>
         <td>@todo.Done</td>
+        <td>
+          <a href="/todo/delete/@todo.Id" class="btn btn-sm btn-danger">Apagar</a>
+          <a href="/todo/update/@todo.Id" class="btn btn-sm btn-success">Editar</a>
+        </td>
       </tr>
     }
 
   </table>
 
-  <a href="/todo/create">Adicionar Tarefa</a>
+  <a href="/todo/create" class="btn btn-primary">Adicionar Tarefa</a>
 
-</body>
-</html>

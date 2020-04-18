@@ -20521,6 +20521,26 @@
   "RootNamespace": "TodoWeb",
   "Documents": [
     {
+      "FilePath": "/Users/dezani/Developments/cw2020/TodoWeb/Views/Todo/Update.cshtml",
+      "TargetPath": "Views\\Todo\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/dezani/Developments/cw2020/TodoWeb/Views/_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/dezani/Developments/cw2020/TodoWeb/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/dezani/Developments/cw2020/TodoWeb/Views/Shared/Layout.cshtml",
+      "TargetPath": "Views\\Shared\\Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/dezani/Developments/cw2020/TodoWeb/Views/Todo/Create.cshtml",
       "TargetPath": "Views\\Todo\\Create.cshtml",
       "FileKind": "mvc"

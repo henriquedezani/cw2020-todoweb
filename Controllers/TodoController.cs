@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using TodoWeb.Data;
 using TodoWeb.Models;
 using System.Collections.Generic;
+using System;
 
 namespace TodoWeb.Controllers
 {
@@ -31,6 +32,8 @@ namespace TodoWeb.Controllers
       if(!ModelState.IsValid)
         return View(model);
 
+      model.Id = Guid.NewGuid();
+
 
       // model.Id = <input name="Id"
       // model.Title = <input name="Title"
@@ -39,6 +42,36 @@ namespace TodoWeb.Controllers
 
       return RedirectToAction("Index");
     }
+
+    public IActionResult Delete(string id) {
+
+      TodoData data = new TodoData();
+      data.Delete(new Guid(id));
+
+      return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public IActionResult Update(string id)  
+    {
+      TodoData data = new TodoData();
+      return View(data.Read(new Guid(id)));
+    }
+
+    [HttpPost]
+    public IActionResult Update(string id, Todo model) 
+    {
+        if(!ModelState.IsValid)
+          return View(model);
+
+        TodoData data = new TodoData();
+
+        model.Id = new Guid(id);
+        data.Update(model);
+
+        return RedirectToAction("Index");
+    }
+
   }
 }
 

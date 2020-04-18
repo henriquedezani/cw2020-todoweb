@@ -29,3 +29,7 @@
 /Users/dezani/Developments/cw2020/TodoWeb/obj/Debug/netcoreapp3.1/TodoWeb.Views.pdb
 /Users/dezani/Developments/cw2020/TodoWeb/obj/Debug/netcoreapp3.1/TodoWeb.csproj.CopyComplete
 /Users/dezani/Developments/cw2020/TodoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Todo/Create.cshtml.g.cs
+/Users/dezani/Developments/cw2020/TodoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Layout.cshtml.g.cs
+/Users/dezani/Developments/cw2020/TodoWeb/obj/Debug/netcoreapp3.1/Razor/Views/_ViewStart.cshtml.g.cs
+/Users/dezani/Developments/cw2020/TodoWeb/obj/Debug/netcoreapp3.1/Razor/Views/_ViewImports.cshtml.g.cs
+/Users/dezani/Developments/cw2020/TodoWeb/obj/Debug/netcoreapp3.1/Razor/Views/Todo/Update.cshtml.g.cs

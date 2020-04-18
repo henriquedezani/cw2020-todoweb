@@ -1,11 +1,16 @@
 @model Todo
 
-  <form action="/todo/create" method="POST">
+  <form asp-controller="todo" asp-action="update" method="POST">
 
     <div class="form-group">
       <label>Title</label>
       <input class="form-control" asp-for="Title">
       <span asp-validation-for="Title"></span>
+    </div>
+
+    <div class="form-group">
+      <label>Done</label>
+      <input asp-for="Done">
     </div>
 
     <button class="btn btn-primary">Salvar</button>
