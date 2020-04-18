@@ -4,6 +4,8 @@ using TodoWeb.Models;
 using System.Collections.Generic;
 using System;
 
+// F#
+
 namespace TodoWeb.Controllers
 {
   public class TodoController : Controller
@@ -11,12 +13,8 @@ namespace TodoWeb.Controllers
     // [HttpGet]
     public IActionResult Index()
     {
-      TodoData data = new TodoData();
-      var lista = data.Read();
-
-      return View(lista); // /Views/Todo/Index.cshtml (CS + HTML = RAZOR)
-
-      // View(object) // estou passando um modelo de dados para a View.
+      using(TodoData data = new TodoData())
+        return View(data.Read());
     }
 
     [HttpGet]
@@ -34,19 +32,16 @@ namespace TodoWeb.Controllers
 
       model.Id = Guid.NewGuid();
 
-
-      // model.Id = <input name="Id"
-      // model.Title = <input name="Title"
-      TodoData data = new TodoData();
-      data.Create(model);
+      using(TodoData data = new TodoData())
+        data.Create(model);
 
       return RedirectToAction("Index");
     }
 
     public IActionResult Delete(string id) {
 
-      TodoData data = new TodoData();
-      data.Delete(new Guid(id));
+      using(TodoData data = new TodoData())
+        data.Delete(new Guid(id));
 
       return RedirectToAction("Index");
     }
@@ -54,8 +49,8 @@ namespace TodoWeb.Controllers
     [HttpGet]
     public IActionResult Update(string id)  
     {
-      TodoData data = new TodoData();
-      return View(data.Read(new Guid(id)));
+      using(TodoData data = new TodoData())
+        return View(data.Read(new Guid(id)));
     }
 
     [HttpPost]
@@ -64,10 +59,10 @@ namespace TodoWeb.Controllers
         if(!ModelState.IsValid)
           return View(model);
 
-        TodoData data = new TodoData();
-
         model.Id = new Guid(id);
-        data.Update(model);
+
+        using(TodoData data = new TodoData())
+          data.Update(model);
 
         return RedirectToAction("Index");
     }
